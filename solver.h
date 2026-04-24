@@ -3,9 +3,11 @@
 
 #include "board.h"
 
+// Базовий клас (інтерфейс)
 class Solver {
 public:
-    bool solve(Board& b);
+    virtual bool solve(Board& b) = 0;
+    virtual ~Solver() {}
 };
 
 #endif

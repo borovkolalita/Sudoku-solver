@@ -1,24 +1,30 @@
-# Sudoku Solver (Composition)
+## Sudoku Solver (OOP & Polymorphism)
 
-## Description
-This project implements a Sudoku solver using object-oriented programming and composition.
+### Description  
+This project implements a Sudoku solver using object-oriented programming, composition, and polymorphism.  
+Different solving strategies can be used via a common interface.
 
-The program reads a Sudoku board, solves it using a backtracking algorithm, and prints the result.
+### Structure  
+- **Board** — represents the Sudoku grid  
+- **Solver (abstract class)** — base interface for solving  
+- **BacktrackingSolver** — main solving algorithm  
+- **RandomSolver** — simple demo solver (for polymorphism)
 
-## Structure
-- Board class — represents the Sudoku grid
-- Solver class — solves the Sudoku
-
-## How to run
+### How to run  
 Compile:
-g++ main.cpp board.cpp solver.cpp -o sudoku
+```bash
+g++ main.cpp board.cpp backtracking_solver.cpp random_solver.cpp -o sudoku
+```
 
 Run:
+```bash
 ./sudoku
+```
 
-Enter a 9x9 Sudoku grid (use 0 for empty cells)
+Enter a 9×9 Sudoku grid (use `0` for empty cells)
 
-## Features
-- Input and output of Sudoku
-- Validity checking
-- Backtracking algorithm
+### Features  
+- Sudoku input/output  
+- Board validation  
+- Backtracking solving algorithm  
+- Demonstration of polymorphism  
