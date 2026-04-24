@@ -8,7 +8,7 @@ Different solving strategies can be used via a common interface.
 - **Board** — represents the Sudoku grid  
 - **Solver (abstract class)** — base interface for solving  
 - **BacktrackingSolver** — main solving algorithm  
-- **RandomSolver** — simple demo solver (for polymorphism)
+- **NaiveSolver** — simple demo solver (for polymorphism)
 
 ### How to run  
 Compile:
