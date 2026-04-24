@@ -1,4 +1,4 @@
-## Sudoku Solver (OOP & Polymorphism)
+## Sudoku Solver 
 
 ### Description  
 This project implements a Sudoku solver using object-oriented programming, composition, and polymorphism.  
