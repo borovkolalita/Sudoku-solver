@@ -13,6 +13,7 @@ void Board::print() const {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++)
             cout << grid[i][j] << " ";
+
         cout << endl;
     }
 }
@@ -27,17 +28,17 @@ void Board::set(int row, int col, int value) {
 
 bool Board::isSafe(int row, int col, int num) const {
 
-    // рядок
+    // дивимось рядок
     for (int j = 0; j < SIZE; j++)
         if (grid[row][j] == num)
             return false;
 
-    // стовпець
+    // дивимось стовпець
     for (int i = 0; i < SIZE; i++)
         if (grid[i][col] == num)
             return false;
 
-    // блок 3x3
+    
     int startRow = row - row % 3;
     int startCol = col - col % 3;
 
@@ -47,4 +48,28 @@ bool Board::isSafe(int row, int col, int num) const {
                 return false;
 
     return true;
+}
+
+bool Board::isFull() const {
+    for (int i = 0; i < SIZE; i++)
+        for (int j = 0; j < SIZE; j++)
+            if (grid[i][j] == 0)
+                return false;
+
+    return true;
+}
+
+vector<int> Board::getCandidates(int row, int col) const {
+    vector<int> candidates;
+
+    if (grid[row][col] != 0)
+        return candidates;
+
+    for (int num = 1; num <= 9; num++) {
+        if (isSafe(row, col, num)) {
+            candidates.push_back(num);
+        }
+    }
+
+    return candidates;
 }

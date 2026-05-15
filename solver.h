@@ -3,9 +3,17 @@
 
 #include "board.h"
 
+struct SolverStats {
+    int recursiveCalls = 0;
+    int branchesTried = 0;
+};
+
 class Solver {
 public:
-    bool solve(Board& b);
+    SolverStats stats;
+
+    virtual bool solve(Board& b) = 0;
+    virtual ~Solver() {}
 };
 
 #endif
