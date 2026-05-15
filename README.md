@@ -1,24 +1,34 @@
-# Sudoku Solver (Composition)
-
+# Sudoku Solver Optimization (Lab 07)
 ## Description
-This project implements a Sudoku solver using object-oriented programming and composition.
-
-The program reads a Sudoku board, solves it using a backtracking algorithm, and prints the result.
+This project implements an optimized Sudoku solver using object-oriented programming. The goal of this version is to improve search efficiency using heuristics and constraint propagation.
 
 ## Structure
-- Board class — represents the Sudoku grid
-- Solver class — solves the Sudoku
+Board class — manages the 9x9 grid, candidate generation, and validation.
 
-## How to run
-Compile:
-g++ main.cpp board.cpp solver.cpp -o sudoku
+Solver (Interface) — abstract base class for different solving strategies.
 
-Run:
-./sudoku
+BaselineSolver — standard backtracking (for performance comparison).
 
-Enter a 9x9 Sudoku grid (use 0 for empty cells)
+MRVSolver — implements the Minimum Remaining Values heuristic.
+
+OptimizedSolver — combines MRV with Iterative Constraint Propagation (forced moves).
 
 ## Features
-- Input and output of Sudoku
-- Validity checking
-- Backtracking algorithm
+Heuristic search: Selects cells with the fewest possible candidates to reduce branching.
+
+Constraint Propagation: Automatically fills "forced" cells before starting recursion.
+
+Performance Tracking: Collects statistics on recursive calls and attempted branches to compare solver efficiency.
+
+Extensible Architecture: Uses inheritance and polymorphism to switch between different solver algorithms.
+
+## How to run
+### Compile all source files:
+
+Bash
+g++ main.cpp board.cpp baseline_solver.cpp mrv_solver.cpp optimized_solver.cpp -o sudoku
+Run:
+
+Bash
+./sudoku
+Choose the solver type in the menu and enter a 9x9 Sudoku grid (use 0 for empty cells).
